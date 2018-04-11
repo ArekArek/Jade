@@ -1,5 +1,7 @@
 package com.tuco;
 
+import com.tuco.client.Checker;
+import com.tuco.ui.CheckerGui;
 import jade.core.Agent;
 import jade.core.behaviours.*;
 import jade.lang.acl.ACLMessage;
@@ -17,8 +19,16 @@ public class BookSellerAgent extends Agent {
 
   protected void setup() {
     catalogue = new Hashtable();
-    myGui = new BookSellerGui(this);
-    myGui.display();
+//    myGui = new BookSellerGui(this);
+//    myGui.display();
+	  CheckerGui checkerGui = new CheckerGui(new Checker());
+	  checkerGui.display();
+	  Map<String, Float> mapa = new HashMap<>();
+	  mapa.put("plple", 12.12f);
+	  mapa.put("fofofof", 35.1f);
+	  mapa.put("qwsda", -1.34f);
+
+	  checkerGui.updateTemperatureList(mapa);
 
     //rejestracja sprzedazy w katalogu df
     DFAgentDescription dfd = new DFAgentDescription();

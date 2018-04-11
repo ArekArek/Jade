@@ -1,5 +1,7 @@
 package com.tuco;
 
+import com.tuco.server.Station;
+import com.tuco.ui.StationGui;
 import jade.core.Agent;
 import jade.core.AID;
 import jade.core.behaviours.*;
@@ -9,6 +11,7 @@ import jade.domain.DFService;
 import jade.domain.FIPAException;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
+import javafx.application.Application;
 
 public class BookBuyerAgent extends Agent {
   private BookBuyerGui myGui;
@@ -19,11 +22,15 @@ public class BookBuyerAgent extends Agent {
 	protected void setup() {
 	  targetBookTitle = "";
 	  System.out.println("Witam! Agent kupujacy "+getAID().getLocalName()+" czeka na dyspozycje kupna.");
-	  myGui = new BookBuyerGui(this);
-	  myGui.display();
+//	  myGui = new BookBuyerGui(this);
+//	  myGui.display();
+
+		StationGui gui = new StationGui(new Station());
+		gui.display();
+
 		//interwal czasowy dla kupujacego pomiedzy wysylaniem kolejnych cfp
 		//przekazywany jako argument linii polecen
-		int interval = 20000;
+		int interval = 200;
 		Object[] args = getArguments();
 		if (args != null && args.length > 0) interval = Integer.parseInt(args[0].toString());
 	  addBehaviour(new TickerBehaviour(this, interval)
