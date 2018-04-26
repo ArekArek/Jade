@@ -12,7 +12,7 @@ public class FindTemperaturesBehaviour extends Behaviour {
     private Checker checker;
     private int step = 0;
     private int repliesCnt = 0;
-    Map<String, Float> temperaturesFound = new HashMap<>();
+    private Map<String, Float> temperaturesFound = new HashMap<>();
 
     public FindTemperaturesBehaviour(Checker checker) {
         this.checker = checker;
@@ -38,12 +38,11 @@ public class FindTemperaturesBehaviour extends Behaviour {
                 ACLMessage msg = myAgent.receive(mt);
                 if (msg != null) {
                     if (msg.getPerformative() == ACLMessage.CONFIRM) {
-                        //otrzymano oferte
-                        temperaturesFound.put(msg.getContent(), 0f);
+                        String[] parts = msg.getContent().split(";");
+                        temperaturesFound.put(parts[0], Float.valueOf(parts[1]));
                     }
                     repliesCnt++;
                     if (repliesCnt >= checker.getTemperatureAgents().length) {
-                        //otrzymano wszystkie oferty -> nastepny krok
                         step = 2;
                     }
                 }

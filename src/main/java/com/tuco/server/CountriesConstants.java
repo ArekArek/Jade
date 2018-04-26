@@ -10,14 +10,12 @@ import java.util.Random;
 import java.util.stream.Stream;
 
 public class CountriesConstants {
-    private static List<String> getCountriesFromResources() {
-        List<String> result = new ArrayList<String>();
-//        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-//        Stream<String> inputStream = (Stream<String>) classloader.getResourceAsStream("countries");
-//        inputStream.forEach(result::add);
+    private static List<String> countries = getCountriesFromResources();
 
-        ClassLoader classLoader = CountriesConstants.class.getClassLoader();
-        File file = new File(classLoader.getResource("countries").getFile());
+    private static List<String> getCountriesFromResources() {
+        List<String> result = new ArrayList<>();
+
+        File file = new File("/home/arek/Desktop/S6/MultiAgent/weather/src/main/resources/countries");
 
         try (Stream<String> stream = Files.lines(Paths.get(file.getPath()))) {
             stream.forEach(result::add);
@@ -28,8 +26,9 @@ public class CountriesConstants {
     }
 
     public static String getCountry() {
-        List<String> countries = getCountriesFromResources();
         int index = new Random().nextInt(countries.size());
-        return countries.get(index);
+        String country = countries.get(index);
+        countries.remove(index);
+        return country;
     }
 }

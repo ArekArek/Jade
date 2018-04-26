@@ -15,13 +15,7 @@ public class Checker extends Agent {
 
     protected void setup() {
         checkerGui = new CheckerGui(new Checker());
-        Map<String, Float> mapa = new HashMap<>();
-        mapa.put("plple", 12.12f);
-        mapa.put("fofofof", 35.1f);
-        mapa.put("qwsda", -1.34f);
         checkerGui.display();
-
-        checkerGui.updateTemperatureList(mapa);
 
         int interval = 10000;
         addBehaviour(new CyclicTemperatureBehaviour(this, interval));
@@ -31,9 +25,7 @@ public class Checker extends Agent {
         checkerGui.updateTemperatureList(temperatures);
     }
 
-    protected void takeDown() { //opcjonalnie
-        // operacje wykonywane bezpośrednio przed usunięciem agenta
-    }
+    protected void takeDown() {}
 
     public AID[] getTemperatureAgents() {
         return temperatureAgents;

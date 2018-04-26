@@ -24,14 +24,12 @@ public class CyclicTemperatureBehaviour extends TickerBehaviour{
         if (!checker.searching) {
             checker.searching=true;
             System.out.println("Szukam temperatur ");
-            //aktualizuj liste znanych sprzedawcow
             DFAgentDescription template = new DFAgentDescription();
             ServiceDescription sd = new ServiceDescription();
             sd.setType(SERVICE_TYPE);
             template.addServices(sd);
             try {
                 DFAgentDescription[] result = DFService.search(myAgent, template);
-                System.out.println("Znaleziono sprzedajacych:");
                 checker.setTemperatureAgents(new AID[result.length]);
                 for (int i = 0; i < result.length; ++i) {
                     checker.setTemperatureAgent(i, result[i].getName());

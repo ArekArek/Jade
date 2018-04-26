@@ -34,43 +34,14 @@
     </build>
     <profiles>
         <profile>
-            <id>jade-main</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <configuration>
-                            <archive>
-                                <manifest>
-                                    <addClasspath>true</addClasspath>
-                                </manifest>
-                            </archive>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>exec-maven-plugin</artifactId>
-                        <version>1.6.0</version>
-                        <configuration>
-                            <mainClass>jade.Boot</mainClass>
-                            <arguments>
-                                <argument>-conf</argument>
-                                <argument>src/main/resources/jade-main-container.properties</argument>
-                            </arguments>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>jade-agent</id>
+            <id>jade-run</id>
             <build>
                 <plugins>
                     <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <configuration>
+                        <finalName>weather</finalName>
                         <archive>
                             <manifest>
                                 <addClasspath>true</addClasspath>
@@ -89,6 +60,25 @@
                                 <argument>src/main/resources/jade-agent-container.properties</argument>
                             </arguments>
                             <executable>java</executable>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jade-build</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <configuration>
+                            <finalName>weather</finalName>
+                            <archive>
+                                <manifest>
+                                    <addClasspath>true</addClasspath>
+                                </manifest>
+                            </archive>
                         </configuration>
                     </plugin>
                 </plugins>
