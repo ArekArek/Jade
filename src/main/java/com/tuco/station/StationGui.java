@@ -1,6 +1,4 @@
-package com.tuco.ui;
-
-import com.tuco.server.Station;
+package com.tuco.station;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,8 +6,6 @@ import java.awt.*;
 public class StationGui extends JFrame {
     private Station station;
     private JLabel valueLabel;
-    private static int stationNumber = 0;
-
 
     public StationGui(Station s) throws HeadlessException {
         super(s.getLocalName());

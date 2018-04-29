@@ -1,14 +1,13 @@
-package com.tuco.client;
+package com.tuco.checker;
 
 import jade.core.AID;
-import jade.core.Agent;
 import jade.core.behaviours.TickerBehaviour;
 import jade.domain.DFService;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;
 import jade.domain.FIPAAgentManagement.ServiceDescription;
 import jade.domain.FIPAException;
 
-public class CyclicTemperatureBehaviour extends TickerBehaviour{
+public class CyclicTemperatureBehaviour extends TickerBehaviour {
 
     private static final String SERVICE_TYPE = "weather-station";
 
@@ -16,13 +15,13 @@ public class CyclicTemperatureBehaviour extends TickerBehaviour{
 
     public CyclicTemperatureBehaviour(Checker checker, long period) {
         super(checker, period);
-        this.checker=checker;
+        this.checker = checker;
     }
 
     @Override
     protected void onTick() {
         if (!checker.searching) {
-            checker.searching=true;
+            checker.searching = true;
             System.out.println("Szukam temperatur ");
             DFAgentDescription template = new DFAgentDescription();
             ServiceDescription sd = new ServiceDescription();

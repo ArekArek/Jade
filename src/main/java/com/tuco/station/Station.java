@@ -1,6 +1,5 @@
-package com.tuco.server;
+package com.tuco.station;
 
-import com.tuco.ui.StationGui;
 import jade.core.Agent;
 import jade.domain.DFService;
 import jade.domain.FIPAAgentManagement.DFAgentDescription;

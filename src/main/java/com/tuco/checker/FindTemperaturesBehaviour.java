@@ -1,4 +1,4 @@
-package com.tuco.client;
+package com.tuco.checker;
 
 import jade.core.behaviours.Behaviour;
 import jade.lang.acl.ACLMessage;
@@ -45,8 +45,7 @@ public class FindTemperaturesBehaviour extends Behaviour {
                     if (repliesCnt >= checker.getTemperatureAgents().length) {
                         step = 2;
                     }
-                }
-                else {
+                } else {
                     block();
                 }
                 break;
@@ -54,10 +53,10 @@ public class FindTemperaturesBehaviour extends Behaviour {
                 System.out.println("STEP 2");
                 checker.updateTemperatures(temperaturesFound);
 
-                checker.searching=false;
-                repliesCnt=0;
+                checker.searching = false;
+                repliesCnt = 0;
                 temperaturesFound.clear();
-                step=3;
+                step = 3;
                 break;
 
         }
@@ -65,6 +64,6 @@ public class FindTemperaturesBehaviour extends Behaviour {
 
     @Override
     public boolean done() {
-        return step==3;
+        return step == 3;
     }
 }

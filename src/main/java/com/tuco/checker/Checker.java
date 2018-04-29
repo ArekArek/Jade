@@ -1,10 +1,8 @@
-package com.tuco.client;
+package com.tuco.checker;
 
-import com.tuco.ui.CheckerGui;
 import jade.core.AID;
 import jade.core.Agent;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Checker extends Agent {
@@ -21,11 +19,12 @@ public class Checker extends Agent {
         addBehaviour(new CyclicTemperatureBehaviour(this, interval));
     }
 
-    public void updateTemperatures(Map<String, Float> temperatures){
+    public void updateTemperatures(Map<String, Float> temperatures) {
         checkerGui.updateTemperatureList(temperatures);
     }
 
-    protected void takeDown() {}
+    protected void takeDown() {
+    }
 
     public AID[] getTemperatureAgents() {
         return temperatureAgents;

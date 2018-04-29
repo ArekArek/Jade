@@ -104,7 +104,3 @@
         </dependency>
     </dependencies>
 </project>
-<!--
-mvn -Pjade-main exec:java
-mvn install -Pjade-agent exec:java
--->

@@ -1,18 +1,14 @@
-package com.tuco.ui;
-
-import com.tuco.client.Checker;
+package com.tuco.checker;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Map;
 
 public class CheckerGui extends JFrame {
-    private Checker checker;
     private DefaultListModel<String> temperaturesListModel;
 
     public CheckerGui(Checker c) throws HeadlessException {
         super(c.getLocalName());
-        this.checker = c;
 
         initializeTemperaturesList();
 

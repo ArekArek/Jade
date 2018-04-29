@@ -1,4 +1,4 @@
-package com.tuco.server;
+package com.tuco.station;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,11 +15,11 @@ public class CountriesConstants {
     private static List<String> getCountriesFromResources() {
         List<String> result = new ArrayList<>();
 
-        File file = new File("/home/arek/Desktop/S6/MultiAgent/weather/src/main/resources/countries");
+        File file = new File("src/main/resources/countries");
 
         try (Stream<String> stream = Files.lines(Paths.get(file.getPath()))) {
             stream.forEach(result::add);
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return result;
